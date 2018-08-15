@@ -25,6 +25,8 @@ The Cloud9 IDE team
 Visit http://docs.c9.io for documentation, or http://support.c9.io for support.
 To watch some training videos, visit http://www.youtube.com/user/c9ide
 
+## nvm version commands
+
 nvm install 9
 nvm use 9
 nvm alias default 9
