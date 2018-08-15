@@ -1,0 +1,11 @@
+@import '../base.scss';
+
+.general-container{
+    margin-top: 10px;
+    .header-container{
+        background-color: $main-color-branding;
+        .logo-img{
+            width: 15%;
+        }
+    }
+}
