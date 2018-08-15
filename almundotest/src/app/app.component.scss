@@ -1,11 +1,18 @@
 @import '../base.scss';
 
 .general-container{
-    margin-top: 10px;
+    background-color: $main-gray-background-color;
     .header-container{
+        margin-bottom: 10px;
         background-color: $main-color-branding;
         .logo-img{
             width: 15%;
+            @media (max-width: $large-res) {
+                width: 50%;
+            }
         }
+    }
+    .body-container{
+        margin: 10px 30px;
     }
 }

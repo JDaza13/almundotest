@@ -1,0 +1,12 @@
+@import '../../base.scss';
+
+.hotel-general-container{
+    background-color: $color-white;
+    padding: 5px;
+    margin: 10px;
+    .hotel-img-preview-wrapper{
+        .hotel-img-preview{
+            width: 50%;
+        }
+    }
+}
