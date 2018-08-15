@@ -1,4 +1,8 @@
 export class Hotel {
-  id: number;
+  id: string;
   name: string;
+  stars: number;
+  price: number;
+  image: string;
+  amenities: string[];
 }

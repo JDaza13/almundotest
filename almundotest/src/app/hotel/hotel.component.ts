@@ -8,10 +8,41 @@ import { Hotel } from '../hotel';
 })
 export class HotelComponent implements OnInit {
  
+  Arr = Array;
+ 
   hotel: Hotel = {
-    id: 1,
-    name: 'Hilton'
+    'id': '249942',
+    'name': 'Hotel Stefanos',
+    'stars': 3,
+    'price': 994.18,
+    'image': '4900059_30_b.jpg',
+    'amenities': [
+      'safety-box',
+      'nightclub',
+      'deep-soaking-bathtub',
+      'beach',
+      'business-center'
+    ]
   };
+  
+  amenities = [
+    "safety-box",
+    "nightclub",
+    "deep-soaking-bathtub",
+    "beach",
+    "business-center",
+    "bathtub",
+    "newspaper",
+    "restaurant",
+    "fitness-center",
+    "garden",
+    "bathrobes",
+    "beach-pool-facilities",
+    "coffe-maker",
+    "children-club",
+    "separate-bredroom",
+    "kitchen-facilities"
+  ];
 
   constructor() { }
 

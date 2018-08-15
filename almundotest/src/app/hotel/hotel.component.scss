@@ -9,4 +9,90 @@
             width: 50%;
         }
     }
+    .hotel-data-wrapper{
+        .hotel-amenities-container{
+            .amenity{
+                &-safety-box{
+                    &:after{
+                        content: "\f023";
+                    }
+                }
+                &-nightclub{
+                    &:after{
+                        content: "\f000";
+                    }
+                }
+                &-deep-soaking-bathtub{
+                    &:after{
+                        content: "\f2cd";
+                    }
+                }
+                &-beach{
+                    &:after{
+                        content: "\f185";
+                    }
+                }
+                &-business-center{
+                    &:after{
+                        content: "\f1ad";
+                    }
+                }
+                &-bathtub{
+                    &:after{
+                        content: "\f2cd";
+                    }
+                }
+                &-newspaper{
+                    &:after{
+                        content: "\f1ea";
+                    }
+                }
+                &-restaurant{
+                    &:after{
+                        content: "\f0f5";
+                    }
+                }
+                &-fitness-center{
+                    &:after{
+                        content: "\f44b";
+                    }
+                }
+                &-garden{
+                    &:after{
+                        content: "\f000";
+                    }
+                }
+                &-bathrobes{
+                    &:after{
+                        content: "\f2cd";
+                    }
+                }
+                &-beach-pool-facilities{
+                    &:after{
+                        content: "\f5ca";
+                    }
+                }
+                &-coffe-maker{
+                    &:after{
+                        content: "\f0f4";
+                    }
+                }
+                &-children-club{
+                    &:after{
+                        content: "\f1ae";
+                    }
+                }
+                &-separate-bredroom{
+                    &:after{
+                        content: "\f236";
+                    }
+                }
+                &-kitchen-facilities{
+                    &:after{
+                        content: "\f0f5";
+                    }
+                }
+            }
+        }
+    }
 }
