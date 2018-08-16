@@ -25,6 +25,12 @@ The Cloud9 IDE team
 Visit http://docs.c9.io for documentation, or http://support.c9.io for support.
 To watch some training videos, visit http://www.youtube.com/user/c9ide
 
+### Required
+
+* Verify that you are running at least Node.js version 8.x or greater and npm version 5.x or greater by running node -v and npm -v in a terminal/console window. Older versions produce errors, but newer versions are fine.
+
+* Run npm install in both frontend and backend paths
+
 ### FRONTEND (path=/almundotest)
 
 ## Run the app with 
@@ -54,3 +60,13 @@ set DEBUG=app:* & npm start
 * Filter Operations
 * Persistence and CRUD
 * Responsive
+
+https://guides.github.com/features/mastering-markdown/
+
+## node commands
+
+nvm install 9
+
+nvm use 9
+
+nvm alias default 9
