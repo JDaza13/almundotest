@@ -1,21 +1,22 @@
 <div class="hotel-general-container row" id="hotel-item-{{hotel.id}}">
-    <div class="col-4 no-margin no-padding hotel-img-preview-wrapper">
+    <div class="col-3 no-margin no-padding hotel-img-preview-wrapper">
         <img class="hotel-img-preview" src="assets/4900059_30_b.jpg">
     </div>
-    <div class="col-5 no-margin no-padding hotel-data-wrapper">
-        <h2>
-            {{hotel.name}}
-        </h2>
+    <div class="col-6 no-margin no-padding hotel-data-wrapper">
+        <span class="hotel-name">{{hotel.name}}</span>
         <div class="hotel-stars-container">
-            <span *ngFor="let i of Arr(hotel.stars).fill(1)"><i class="fa fa-star" aria-hidden="true"></i></span>
+            <span *ngFor="let i of Arr(hotel.stars).fill(1)" class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
         </div>
         <div class="hotel-amenities-container">
-            <span *ngFor="let amenity of hotel.amenities"><i class="fa amenity-{{amenity}}" aria-hidden="true"></i></span>
+            <span *ngFor="let amenity of hotel.amenities" class="amenity"><i class="fa amenity-{{amenity}}" aria-hidden="true"></i></span>
         </div>
     </div>
-    <div class="col-3 no-margin no-padding hotel-data">
-        <p>precio por noche por habitación</p>
-        <p>{{hotel.price}}</p>
-        <button type="button" class="btn btn-primary">Ver hotel</button>
+    <div class="col-3 no-margin hotel-pricing-wrapper text-center">
+        <span class="price-label">precio por noche por habitación</span>
+        <div class="price">
+            <span class="price-currency">ARS</span>
+            <span class="price-value"> {{hotel.price}}</span>
+        </div>
+        <button type="button" class="btn btn-primary see-hotel">Ver hotel</button>
     </div>
 </div>

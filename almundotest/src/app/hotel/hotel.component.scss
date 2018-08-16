@@ -2,16 +2,31 @@
 
 .hotel-general-container{
     background-color: $color-white;
+    font-family: proximanova,sans-serif;
     padding: 5px;
     margin: 10px;
     .hotel-img-preview-wrapper{
         .hotel-img-preview{
-            width: 50%;
+            width: 95%;
         }
     }
     .hotel-data-wrapper{
+        .hotel-name{
+            color: $main-color-branding-light;
+            font-size: 15px;
+            font-weight: bolder;
+        }
+        .hotel-stars-container{
+            .star{
+                color: $star-color;
+                margin: 0 2px;
+            }
+        }
         .hotel-amenities-container{
             .amenity{
+                margin: 0 2px;
+                color: $amenity-color;
+                font-size: 25px;
                 &-safety-box{
                     &:after{
                         content: "\f023";
@@ -93,6 +108,29 @@
                     }
                 }
             }
+        }
+    }
+    .hotel-pricing-wrapper{
+        border-left: 1px dashed $color-gray;
+        margin-left: 10px;
+        .price-label{
+            font-size: 15px;
+        }
+        .price{
+            color: $main-color-orange;
+            &-currency{
+                font-size: 25px;
+            }
+            &-value{
+                font-size: 35px;
+                font-weight: bolder;
+            }
+        }
+        .see-hotel{
+            background-color: $main-color-branding;
+            color: $color-white;
+            font-weight: bolder;
+            width: 90%;
         }
     }
 }
