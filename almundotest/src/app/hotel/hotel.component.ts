@@ -24,7 +24,15 @@ export class HotelComponent implements OnInit {
       'business-center'
     ]
   };
-  
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+
+/*
   amenities = [
     "safety-box",
     "nightclub",
@@ -43,10 +51,4 @@ export class HotelComponent implements OnInit {
     "separate-bredroom",
     "kitchen-facilities"
   ];
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
+*/
