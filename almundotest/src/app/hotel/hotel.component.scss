@@ -24,88 +24,59 @@
         }
         .hotel-amenities-container{
             .amenity{
+                .amenity-item{
                 margin: 0 2px;
-                color: $amenity-color;
-                font-size: 25px;
+                    color: $amenity-color;
+                    width: 25px;
+                    height: 25px;
+                }
                 &-safety-box{
-                    &:after{
-                        content: "\f023";
-                    }
+                    content: url(/assets/icons/amenities/safety-box.svg);
                 }
                 &-nightclub{
-                    &:after{
-                        content: "\f000";
-                    }
+                    content: url(/assets/icons/amenities/nightclub.svg);
                 }
                 &-deep-soaking-bathtub{
-                    &:after{
-                        content: "\f2cd";
-                    }
+                    content: url(/assets/icons/amenities/deep-soaking-bathtub.svg);
                 }
                 &-beach{
-                    &:after{
-                        content: "\f185";
-                    }
+                    content: url(/assets/icons/amenities/beach.svg);
                 }
                 &-business-center{
-                    &:after{
-                        content: "\f1ad";
-                    }
+                    content: url(/assets/icons/amenities/business-center.svg);
                 }
                 &-bathtub{
-                    &:after{
-                        content: "\f2cd";
-                    }
+                    content: url(/assets/icons/amenities/bathtub.svg);
                 }
                 &-newspaper{
-                    &:after{
-                        content: "\f1ea";
-                    }
+                    content: url(/assets/icons/amenities/newspaper.svg);
                 }
                 &-restaurant{
-                    &:after{
-                        content: "\f0f5";
-                    }
+                    content: url(/assets/icons/amenities/restaurant.svg);
                 }
                 &-fitness-center{
-                    &:after{
-                        content: "\f44b";
-                    }
+                    content: url(/assets/icons/amenities/fitness-center.svg);
                 }
                 &-garden{
-                    &:after{
-                        content: "\f000";
-                    }
+                    content: url(/assets/icons/amenities/garden.svg);
                 }
                 &-bathrobes{
-                    &:after{
-                        content: "\f2cd";
-                    }
+                    content: url(/assets/icons/amenities/bathrobes.svg);
                 }
                 &-beach-pool-facilities{
-                    &:after{
-                        content: "\f5ca";
-                    }
+                    content: url(/assets/icons/amenities/beach-pool-facilities.svg);
                 }
                 &-coffe-maker{
-                    &:after{
-                        content: "\f0f4";
-                    }
+                    content: url(/assets/icons/amenities/coffe-maker.svg);
                 }
                 &-children-club{
-                    &:after{
-                        content: "\f1ae";
-                    }
+                    content: url(/assets/icons/amenities/children-club.svg);
                 }
                 &-separate-bredroom{
-                    &:after{
-                        content: "\f236";
-                    }
+                    content: url(/assets/icons/amenities/separate-bredroom.svg);
                 }
                 &-kitchen-facilities{
-                    &:after{
-                        content: "\f0f5";
-                    }
+                    content: url(/assets/icons/amenities/kitchen-facilities.svg);
                 }
             }
         }

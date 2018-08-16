@@ -1,6 +1,6 @@
-<div class="hotel-general-container row" id="hotel-item-{{hotel.id}}">
+<div *ngFor="let hotel of hotels" class="hotel-general-container row" id="hotel-item-{{hotel.id}}">
     <div class="col-3 no-margin no-padding hotel-img-preview-wrapper">
-        <img class="hotel-img-preview" src="assets/4900059_30_b.jpg">
+        <img class="hotel-img-preview" src="assets/images/hotels/{{hotel.image}}">
     </div>
     <div class="col-6 no-margin no-padding hotel-data-wrapper">
         <span class="hotel-name">{{hotel.name}}</span>
@@ -8,7 +8,7 @@
             <span *ngFor="let i of Arr(hotel.stars).fill(1)" class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
         </div>
         <div class="hotel-amenities-container">
-            <span *ngFor="let amenity of hotel.amenities" class="amenity"><i class="fa amenity-{{amenity}}" aria-hidden="true"></i></span>
+            <span *ngFor="let amenity of hotel.amenities" class="amenity"><i class="fa amenity-{{amenity}} amenity-item" aria-hidden="true"></i></span>
         </div>
     </div>
     <div class="col-3 no-margin hotel-pricing-wrapper text-center">
