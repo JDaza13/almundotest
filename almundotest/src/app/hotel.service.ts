@@ -14,9 +14,9 @@ export class HotelService {
   constructor(
     private http: HttpClient) { }
 
-  getHotels(): Observable<Hotel[]> {
+  getHotels(params): Observable<Hotel[]> {
     return this.http.get<Hotel[]>(APP_CONSTANTS.API.API_BASE_PATH +
-      APP_CONSTANTS.API.HOTELS_SERVICE.GET_HOTELS)
+      APP_CONSTANTS.API.HOTELS_SERVICE.GET_HOTELS,{ params: params })
   }
   
 }

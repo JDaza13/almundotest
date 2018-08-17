@@ -24,13 +24,18 @@ export class HotelFilterComponent implements OnInit {
   private searchParams = {
     name: null,
     stars: {
-      one: true,
-      two: true,
-      three: true,
-      four: true,
-      five: true
+      1: true,
+      2: true,
+      3: true,
+      4: true,
+      5: true
     }
-  }
+  };
+  
+  private queryParams = {
+    name: null,
+    stars: []
+  };
 
   constructor(private hotelService: HotelService) { 
   }
@@ -46,20 +51,36 @@ export class HotelFilterComponent implements OnInit {
   }
   
   setAllStars(): void {
-    console.log('all stars value:' + this.allStars);
     if(this.allStars){
       this.searchParams.stars = {
-        one: true,
-        two: true,
-        three: true,
-        four: true,
-        five: true
+        1: true,
+        2: true,
+        3: true,
+        4: true,
+        5: true
       }
     }
   }
   
+  buildQueryRequest(): void {
+    
+    this.queryParams.name = this.searchParams.name;
+    this.queryParams.stars = [];
+
+    let starskeys = Object.keys(this.searchParams.stars);
+    let peerStars = this.searchParams.stars;
+
+    let filtered = starskeys.filter(function(key) {
+        return peerStars[key]
+    });
+    
+    this.queryParams.stars = filtered;
+  }
+  
   applyFilter(): void {
-    this.hotelService.getHotels()
+    
+    this.buildQueryRequest();
+    this.hotelService.getHotels(this.queryParams)
         .subscribe(hotels => this.hotelsResult = hotels);
   }
 

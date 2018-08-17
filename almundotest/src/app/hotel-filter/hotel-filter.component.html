@@ -32,23 +32,23 @@
                                 <input [(ngModel)]="allStars" (change)="setAllStars()" type="checkbox"><span class="all-stars-label">Todas las estrellas</span>
                             </div>
                             <div class="star-option">
-                                <input [(ngModel)]="searchParams.stars.five" [disabled]="allStars" type="checkbox">
+                                <input [(ngModel)]="searchParams.stars['5']" [disabled]="allStars" type="checkbox">
                                 <span *ngFor="let i of Arr(5).fill(1)" class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
                             </div>
                             <div class="star-option">
-                                <input [(ngModel)]="searchParams.stars.four" [disabled]="allStars" type="checkbox">
+                                <input [(ngModel)]="searchParams.stars['4']" [disabled]="allStars" type="checkbox">
                                 <span *ngFor="let i of Arr(4).fill(1)" class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
                             </div>
                             <div class="star-option">
-                                <input [(ngModel)]="searchParams.stars.three" [disabled]="allStars" type="checkbox">
+                                <input [(ngModel)]="searchParams.stars['3']" [disabled]="allStars" type="checkbox">
                                 <span *ngFor="let i of Arr(3).fill(1)" class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
                             </div>
                             <div class="star-option">
-                                <input [(ngModel)]="searchParams.stars.two" [disabled]="allStars" type="checkbox">
+                                <input [(ngModel)]="searchParams.stars['2']" [disabled]="allStars" type="checkbox">
                                 <span *ngFor="let i of Arr(2).fill(1)" class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
                             </div>
                             <div class="star-option">
-                                <input [(ngModel)]="searchParams.stars.one" [disabled]="allStars" type="checkbox">
+                                <input [(ngModel)]="searchParams.stars['1']" [disabled]="allStars" type="checkbox">
                                 <span *ngFor="let i of Arr(1).fill(1)" class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
                             </div>
                         </div>
