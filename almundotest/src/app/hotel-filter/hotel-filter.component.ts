@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Hotel } from '../hotel';
+
+import { HotelService } from '../hotel.service';
+
+
 declare var $:any;
 
 @Component({
@@ -14,6 +19,8 @@ export class HotelFilterComponent implements OnInit {
   private filterVisible = false;
   private allStars = true;
   
+  hotelsResult : Hotel[];
+  
   private searchParams = {
     name: null,
     stars: {
@@ -25,11 +32,12 @@ export class HotelFilterComponent implements OnInit {
     }
   }
 
-  constructor() { 
+  constructor(private hotelService: HotelService) { 
   }
 
   ngOnInit() {
     this.toggleFilter();
+    this.applyFilter();
   }
   
   toggleFilter(): void {
@@ -51,7 +59,8 @@ export class HotelFilterComponent implements OnInit {
   }
   
   applyFilter(): void {
-    console.log(this.searchParams);
+    this.hotelService.getHotels()
+        .subscribe(hotels => this.hotelsResult = hotels);
   }
 
 }

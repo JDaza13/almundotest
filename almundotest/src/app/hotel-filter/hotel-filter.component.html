@@ -1,58 +1,63 @@
-<aside>
-    <div class="hotel-filter-general-container row">
-        <div class="filter-collapser text-center col-12">
-            <button (click)="toggleFilter()" class="btn btn-link collapser" type="button">
-                Filtros
-                <span *ngIf="!filterVisible"><i class="fa fa-caret-up"></i></span>
-                <span *ngIf="filterVisible"><i class="fa fa-caret-down"></i></span>
-            </button>
-        </div>
-        <div class="filter-wrapper col-12">
-            <div id="{{filterCollapsableId}}">
-                <div class="filter-name-wrapper input-group">
-                    <div class="col-12 filter-label">
-                        <span><i class="fa fa-search"></i></span>
-                        <span> Nombre del hotel</span>
+<div class="row">
+    <div class="col-lg-4 col-md-12">
+        <div class="hotel-filter-general-container row">
+            <div class="filter-collapser text-center col-12">
+                <button (click)="toggleFilter()" class="btn btn-link collapser" type="button">
+                    Filtros
+                    <span *ngIf="!filterVisible"><i class="fa fa-caret-up"></i></span>
+                    <span *ngIf="filterVisible"><i class="fa fa-caret-down"></i></span>
+                </button>
+            </div>
+            <div class="filter-wrapper col-12">
+                <div id="{{filterCollapsableId}}">
+                    <div class="filter-name-wrapper input-group">
+                        <div class="col-12 filter-label">
+                            <span><i class="fa fa-search"></i></span>
+                            <span> Nombre del hotel</span>
+                        </div>
+                        <div class="col-lg-8 col-md-12 filter-input">
+                            <input [(ngModel)]="searchParams.name" type="text" class="form-control" placeholder="Ingrese el nombre del hotel">
+                        </div>
+                        <div class="col-lg-4 col-md-12 filter-submit">
+                            <button (click)="applyFilter()" type="button" class="btn btn-primary apply-filter">Aceptar</button>
+                        </div>
                     </div>
-                    <div class="col-lg-8 col-md-12 filter-input">
-                        <input [(ngModel)]="searchParams.name" type="text" class="form-control" placeholder="Ingrese el nombre del hotel">
-                    </div>
-                    <div class="col-lg-4 col-md-12 filter-submit">
-                        <button (click)="applyFilter()" type="button" class="btn btn-primary apply-filter">Aceptar</button>
-                    </div>
-                </div>
-                <div class="filter-stars-wrapper">
-                    <div class="col-12 filter-label">
-                        <span><i class="fa fa-star"></i></span>
-                        <span> Estrellas</span>
-                    </div>
-                    <div class="stars-picker col-12">
-                        <div class="star-option">
-                            <input [(ngModel)]="allStars" (change)="setAllStars()" type="checkbox"><span class="all-stars-label">Todas las estrellas</span>
+                    <div class="filter-stars-wrapper">
+                        <div class="col-12 filter-label">
+                            <span><i class="fa fa-star"></i></span>
+                            <span> Estrellas</span>
                         </div>
-                        <div class="star-option">
-                            <input [(ngModel)]="searchParams.stars.five" [disabled]="allStars" type="checkbox">
-                            <span *ngFor="let i of Arr(5).fill(1)" class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
-                        </div>
-                        <div class="star-option">
-                            <input [(ngModel)]="searchParams.stars.four" [disabled]="allStars" type="checkbox">
-                            <span *ngFor="let i of Arr(4).fill(1)" class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
-                        </div>
-                        <div class="star-option">
-                            <input [(ngModel)]="searchParams.stars.three" [disabled]="allStars" type="checkbox">
-                            <span *ngFor="let i of Arr(3).fill(1)" class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
-                        </div>
-                        <div class="star-option">
-                            <input [(ngModel)]="searchParams.stars.two" [disabled]="allStars" type="checkbox">
-                            <span *ngFor="let i of Arr(2).fill(1)" class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
-                        </div>
-                        <div class="star-option">
-                            <input [(ngModel)]="searchParams.stars.one" [disabled]="allStars" type="checkbox">
-                            <span *ngFor="let i of Arr(1).fill(1)" class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
+                        <div class="stars-picker col-12">
+                            <div class="star-option">
+                                <input [(ngModel)]="allStars" (change)="setAllStars()" type="checkbox"><span class="all-stars-label">Todas las estrellas</span>
+                            </div>
+                            <div class="star-option">
+                                <input [(ngModel)]="searchParams.stars.five" [disabled]="allStars" type="checkbox">
+                                <span *ngFor="let i of Arr(5).fill(1)" class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
+                            </div>
+                            <div class="star-option">
+                                <input [(ngModel)]="searchParams.stars.four" [disabled]="allStars" type="checkbox">
+                                <span *ngFor="let i of Arr(4).fill(1)" class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
+                            </div>
+                            <div class="star-option">
+                                <input [(ngModel)]="searchParams.stars.three" [disabled]="allStars" type="checkbox">
+                                <span *ngFor="let i of Arr(3).fill(1)" class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
+                            </div>
+                            <div class="star-option">
+                                <input [(ngModel)]="searchParams.stars.two" [disabled]="allStars" type="checkbox">
+                                <span *ngFor="let i of Arr(2).fill(1)" class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
+                            </div>
+                            <div class="star-option">
+                                <input [(ngModel)]="searchParams.stars.one" [disabled]="allStars" type="checkbox">
+                                <span *ngFor="let i of Arr(1).fill(1)" class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</aside>
+    <div class="col-lg-8 col-md-12">
+        <app-hotel [hotels]="hotelsResult"></app-hotel>
+    </div>
+</div>
