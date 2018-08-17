@@ -1,0 +1,47 @@
+@import '../../base.scss';
+
+.hotel-filter-general-container{
+    font-family: proximanova,sans-serif;
+    .filter-collapser{
+        background-color: $color-white;
+        .collapser{
+            color: $color-black;
+            font-weight: bolder;
+        }
+    }
+    .filter-wrapper{
+        margin: 10px 0;
+        padding: 10px 5px;
+        background-color: $color-white;
+        .filter-label{
+            color: $main-color-branding-light;
+            font-weight: bolder;
+        }
+        .filter-input{
+            margin: 10px 0;
+        }
+        .filter-submit{
+            margin: 10px 0;
+            .apply-filter{
+                background-color: $main-color-branding;
+                color: $color-white;
+                font-weight: bolder;
+                width: 100%;
+            }
+        }
+        .stars-picker{
+            .star-option{
+                .all-stars-label{
+                    margin: 0 5px;
+                    font-size: 15px;
+                    color: $color-black;
+                    font-weight: bolder;
+                }
+            }
+            .star{
+                color: $star-color;
+                margin: 0 5px;
+            }
+        }
+    }
+}

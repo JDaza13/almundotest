@@ -15,14 +15,17 @@
             color: $main-color-branding-light;
             font-size: 15px;
             font-weight: bolder;
+            margin: 10px 0;
         }
         .hotel-stars-container{
             .star{
                 color: $star-color;
                 margin: 0 2px;
             }
+            margin: 10px 0;
         }
         .hotel-amenities-container{
+            margin: 10px 0;
             .amenity{
                 .amenity-item{
                 margin: 0 2px;
@@ -82,7 +85,13 @@
         }
     }
     .hotel-pricing-wrapper{
-        border-left: 1px dashed $color-gray;
+        
+        @media (max-width: $large-res) {
+            border-top: 1px dashed $color-gray;
+        }
+        @media (min-width: $large-res) {
+            border-left: 1px dashed $color-gray;
+        }
         margin-left: 10px;
         .price-label{
             font-size: 15px;
