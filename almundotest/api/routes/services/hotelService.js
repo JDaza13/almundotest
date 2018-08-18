@@ -1,16 +1,9 @@
-var fs = require('fs');
-var path = require('path');
+const Promise = require('promise');
+const hotelDao = require('../daos/hotelDao');
 
-var hotels = null;
-
-fs.readFile(path.join(__dirname, '../hotels.json'), (err, data) => {  
-    if (err) throw err;
-    hotels = JSON.parse(data);
-});
-
-var filterHotels = function(params){
+let filterHotels = function(params){
     
-    var result = hotels;
+    let result = [];
     
     //fix null queryParam
     if(params.name && params.name === 'null'){
@@ -20,20 +13,10 @@ var filterHotels = function(params){
     if(params.stars && !Array.isArray(params.stars)){
         params.stars = [params.stars];
     }
-    
-    //Search way too vanilla
-    if(params.name){
-        result = hotels.filter(function (e) {
-            return e.name.toLowerCase().indexOf(params.name.toLowerCase()) >= 0;
-        });
-    }
-    if(params.stars && Array.isArray(params.stars) && result.length > 0){
-        result = result.filter(function (e) {
-            return params.stars.indexOf(e.stars+'') >= 0;
-        });
-    }
-    
-    return result;
+    //cast array of stars to Number
+    params.stars = params.stars.map(Number);
+
+    return hotelDao.fetchHotels(params);
 }
 
 exports.getHotels = function (params) {

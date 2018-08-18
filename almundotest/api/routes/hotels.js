@@ -1,13 +1,21 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const Promise = require('promise');
 
-var hotelService = require('./services/hotelService');
+const hotelService = require('./services/hotelService');
 
 /* GET hotels listing. */
 router.get('/get-hotels', function(req, res, next) {
   
-  var hotelsResult = hotelService.getHotels(req.query);
-  res.send(hotelsResult);
+  let hotelsResult = hotelService.getHotels(req.query);
+  
+  hotelsResult
+    .then(function(data){
+      res.send(data);
+    })
+    .catch(function(err){
+      res.status(500).send('Caught error fetching hotels.');
+    });
 });
 
 module.exports = router;
