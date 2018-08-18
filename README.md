@@ -58,13 +58,3 @@ set DEBUG=app:* & npm start
 ## TODO
 
 * CRUD
-
-https://guides.github.com/features/mastering-markdown/
-
-## node commands
-
-nvm install 9
-
-nvm use 9
-
-nvm alias default 9
