@@ -57,9 +57,7 @@ set DEBUG=app:* & npm start
 
 ## TODO
 
-* Filter Operations
-* Persistence and CRUD
-* Responsive
+* CRUD
 
 https://guides.github.com/features/mastering-markdown/
 
