@@ -5,5 +5,4 @@ export const APP_CONSTANTS = {
             GET_HOTELS: 'hotels/get-hotels'
         }
     }
-
-}
+};

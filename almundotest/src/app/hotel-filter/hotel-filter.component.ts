@@ -4,7 +4,7 @@ import { Hotel } from '../hotel';
 import { HotelService } from '../hotel.service';
 
 
-declare var $:any;
+declare var $: any;
 
 @Component({
   selector: 'app-hotel-filter',
@@ -19,7 +19,7 @@ export class HotelFilterComponent implements OnInit {
   private filterVisible = false;
   private allStars = true;
   
-  hotelsResult : Hotel[];
+  hotelsResult: Hotel[];
   
   private searchParams = {
     name: null,
@@ -51,14 +51,14 @@ export class HotelFilterComponent implements OnInit {
   }
   
   setAllStars(): void {
-    if(this.allStars){
+    if (this.allStars) {
       this.searchParams.stars = {
         1: true,
         2: true,
         3: true,
         4: true,
         5: true
-      }
+      };
     }
   }
   
@@ -67,11 +67,11 @@ export class HotelFilterComponent implements OnInit {
     this.queryParams.name = this.searchParams.name;
     this.queryParams.stars = [];
 
-    let starskeys = Object.keys(this.searchParams.stars);
-    let peerStars = this.searchParams.stars;
+    const starskeys = Object.keys(this.searchParams.stars);
+    const peerStars = this.searchParams.stars;
 
-    let filtered = starskeys.filter(function(key) {
-        return peerStars[key]
+    const filtered = starskeys.filter(function(key) {
+        return peerStars[key];
     });
     
     this.queryParams.stars = filtered;
@@ -83,5 +83,4 @@ export class HotelFilterComponent implements OnInit {
     this.hotelService.getHotels(this.queryParams)
         .subscribe(hotels => this.hotelsResult = hotels);
   }
-
 }
