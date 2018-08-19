@@ -15,13 +15,13 @@ export class HotelFilterComponent implements OnInit {
   
   Arr = Array;
   
-  private filterCollapsableId = 'filter-collapsable-container-' + Date.now();
-  private filterVisible = false;
-  private allStars = true;
+  filterCollapsableId = 'filter-collapsable-container-' + Date.now();
+  filterVisible = false;
+  allStars = true;
   
   hotelsResult: Hotel[];
   
-  private searchParams = {
+  searchParams = {
     name: null,
     stars: {
       1: true,
@@ -32,7 +32,7 @@ export class HotelFilterComponent implements OnInit {
     }
   };
   
-  private queryParams = {
+  queryParams = {
     name: null,
     stars: []
   };

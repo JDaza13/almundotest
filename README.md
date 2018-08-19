@@ -35,11 +35,15 @@ To watch some training videos, visit http://www.youtube.com/user/c9ide
 
 ## Run the app with 
 
-ng serve --open --host $IP --port $PORT --disable-host-check
+ng serve --disable-host-check
 
-## Run app on PRD with
+## Run app on PRD with (This process mocks minify and dist export, it is not suitable for real PRD env)
 
-ng serve --target=production --open --host $IP --port $PORT --disable-host-check
+ng serve --prod --disable-host-check
+
+## Run lint with
+
+ng lint
 
 ### BACKEND (path=/almundotest/api)
 

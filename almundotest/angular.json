@@ -55,7 +55,9 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "almundotest:build"
+            "browserTarget": "almundotest:build",
+            "port": 8080,
+            "host" : "0.0.0.0"
           },
           "configurations": {
             "production": {
