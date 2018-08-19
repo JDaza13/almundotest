@@ -57,5 +57,4 @@ set DEBUG=app:* & npm start
 
 ## TODO
 
-* CRUD
 * Continuous delivery
