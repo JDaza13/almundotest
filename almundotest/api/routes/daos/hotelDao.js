@@ -1,4 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
+const mongo = require('mongodb');
 const assert = require('assert');
 const Promise = require('promise');
 
@@ -7,33 +8,9 @@ const connectParser = { useNewUrlParser: true };
 const dbName = 'almundotest';
 const hotelsCollection = 'hotels';
 
-exports.pingDB = function (){
-    MongoClient.connect(url, connectParser, function(err, client) {
-        assert.equal(null, err);
-        console.log("Connected successfully to server.");
-        client.close();
-    });
-}
+//DAO methods
 
-exports.fetchHotels = function (params) {
-
-    return new Promise(function(resolve,reject) {
-        
-        MongoClient.connect(url, connectParser, function(err, client) {
-            assert.equal(null, err);
-
-            const db = client.db(dbName);
-            
-            findhotels(db, function(docs) {
-                resolve(docs);
-                client.close();
-            }, params);
-        });
-    });
-
-};
-
-const findhotels = function(db, callback, params) {
+const findHotels = function(db, callback, params) {
 
     let query = {};
     
@@ -50,3 +27,119 @@ const findhotels = function(db, callback, params) {
         callback(docs);
     });
 }
+
+const insertHotels = function(db, callback, hotelArray) {
+
+    const collection = db.collection(hotelsCollection);
+
+    collection.insertMany(hotelArray, function(err, result) {
+        callback(result);
+    });
+}
+
+const editHotel = function(db, callback, hotelData, id) {
+
+    const collection = db.collection(hotelsCollection);
+    let o_id = new mongo.ObjectID(id);
+
+    collection.updateOne({ '_id' : o_id }, { $set: hotelData }, function(err, result) {
+        callback(result);
+    });
+}
+
+const removeHotel = function(db, callback,  id) {
+
+    const collection = db.collection(hotelsCollection);
+    let o_id = new mongo.ObjectID(id);
+
+    collection.deleteOne({ '_id' : o_id }, function(err, result) {
+        callback(result);
+    });
+}
+
+//DAO exports
+
+exports.pingDB = function (){
+    
+    return new Promise(function(resolve,reject) {
+    
+        MongoClient.connect(url, connectParser, function(err, client) {
+            assert.equal(null, err);
+            resolve("Connected successfully to server.");
+            client.close();
+        });
+    
+    });
+}
+
+exports.fetchHotels = function (params) {
+
+    return new Promise(function(resolve,reject) {
+        
+        MongoClient.connect(url, connectParser, function(err, client) {
+            assert.equal(null, err);
+
+            const db = client.db(dbName);
+            
+            findHotels(db, function(docs) {
+                resolve(docs);
+                client.close();
+            }, params);
+        });
+    });
+
+};
+
+exports.createHotels = function (hotels) {
+
+    return new Promise(function(resolve,reject) {
+        
+        MongoClient.connect(url, connectParser, function(err, client) {
+            assert.equal(null, err);
+
+            const db = client.db(dbName);
+            
+            insertHotels(db, function(result) {
+                resolve(result);
+                client.close();
+            }, hotels);
+        });
+    });
+
+};
+
+exports.editHotel = function (hotelData, hotelId) {
+
+    return new Promise(function(resolve,reject) {
+        
+        MongoClient.connect(url, connectParser, function(err, client) {
+            assert.equal(null, err);
+
+            const db = client.db(dbName);
+            
+            editHotel(db, function(result) {
+                resolve(result);
+                client.close();
+            }, hotelData, hotelId);
+        });
+    });
+
+};
+
+exports.deleteHotel = function (hotelId) {
+
+    return new Promise(function(resolve,reject) {
+        
+        MongoClient.connect(url, connectParser, function(err, client) {
+            assert.equal(null, err);
+
+            const db = client.db(dbName);
+            
+            removeHotel(db, function(result) {
+                resolve(result);
+                client.close();
+            }, hotelId);
+        });
+    });
+
+};

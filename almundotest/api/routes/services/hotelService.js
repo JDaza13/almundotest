@@ -1,7 +1,9 @@
 const Promise = require('promise');
 const hotelDao = require('../daos/hotelDao');
 
-let filterHotels = function(params){
+//Service methods
+
+const filterHotels = function(params){
     
     let result = [];
     
@@ -12,14 +14,43 @@ let filterHotels = function(params){
     //fix array for stars
     if(params.stars && !Array.isArray(params.stars)){
         params.stars = [params.stars];
-    }
-    //cast array of stars to Number
-    params.stars = params.stars.map(Number);
 
+    }
+    if(params.stars && Array.isArray(params.stars)){
+        //cast array of stars to Number
+        params.stars = params.stars.map(Number);
+    }
+    
     return hotelDao.fetchHotels(params);
 }
+
+const insertHotels = function(hotelArray) {
+  return hotelDao.createHotels(hotelArray);  
+};
+
+const editHotel = function(hotelData, hotelId) {
+  return hotelDao.editHotel(hotelData, hotelId);  
+};
+
+const removeHotel = function(hotelId) {
+  return hotelDao.deleteHotel(hotelId);  
+};
+
+//Service exports
 
 exports.getHotels = function (params) {
 
     return filterHotels(params);
+};
+
+exports.putHotels = function (hotels) {
+    return insertHotels(hotels);
+};
+
+exports.updateHotel = function (hotelData, hotelId) {
+    return editHotel(hotelData, hotelId);
+};
+
+exports.deleteHotel = function (hotelId) {
+    return removeHotel(hotelId);
 };
