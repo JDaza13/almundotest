@@ -1,0 +1,73 @@
+{
+	"variables": [],
+	"info": {
+		"name": "AlmundoTestAPI",
+		"_postman_id": "92288abd-182f-6187-5d1e-7a5e11952a7e",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://almundotest-jdaza13.c9users.io:8081/hotels/create-hotels",
+			"request": {
+				"url": "https://almundotest-jdaza13.c9users.io:8081/hotels/create-hotels",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"hotelArray\" : [\n\t\t {\n\t\t    \"name\": \"Mock hotel for insert\",\n\t\t    \"stars\": 5,\n\t\t    \"price\": 999.99,\n\t\t    \"image\": \"abc_testing_imgage.jpg\",\n\t\t    \"amenities\": [\n\t\t      \"kitchen-facilities\"\n\t\t    ]\n\t\t  }\n\t]\n}\n\n"
+				},
+				"description": "Create hotels using hotelArrray"
+			},
+			"response": []
+		},
+		{
+			"name": "https://almundotest-jdaza13.c9users.io:8081/hotels/edit-hotel/{hoteliId}",
+			"request": {
+				"url": "https://almundotest-jdaza13.c9users.io:8081/hotels/edit-hotel/5b78b5a086bc892c57bced69",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n    \"name\": \"Mock hotel for insert v002\"\n }"
+				},
+				"description": "Edit hotel data"
+			},
+			"response": []
+		},
+		{
+			"name": "https://almundotest-jdaza13.c9users.io:8081/hotels/get-hotels",
+			"request": {
+				"url": "https://almundotest-jdaza13.c9users.io:8081/hotels/get-hotels",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "get hotels, can receive name(String) and stars(Array) as query params"
+			},
+			"response": []
+		},
+		{
+			"name": "https://almundotest-jdaza13.c9users.io:8081/hotels/delete-hotel/{hotelId}",
+			"request": {
+				"url": "https://almundotest-jdaza13.c9users.io:8081/hotels/delete-hotel/5b78bce913fe8a2dbfdd7e5a",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": "Deletes a hotel by id"
+			},
+			"response": []
+		}
+	]
+}
