@@ -3,10 +3,13 @@ const mongo = require('mongodb');
 const assert = require('assert');
 const Promise = require('promise');
 
-const url = 'mongodb://almundouser:almundopass1@ds123532.mlab.com:23532/almundotest';
+const envs = require('../../enviroments/envs');
+
+
+const url = envs.getSelEnv().env.DBSettings.mongodburl;
+const dbName = envs.getSelEnv().env.DBSettings.dbName;
+const hotelsCollection = envs.getSelEnv().env.DBSettings.collectionName;
 const connectParser = { useNewUrlParser: true };
-const dbName = 'almundotest';
-const hotelsCollection = 'hotels';
 
 //DAO methods
 

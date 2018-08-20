@@ -1,15 +1,7 @@
 #!/usr/bin/env node
 
-/**
- * Module dependencies.
- */
-
-const app = require('../app');
-const debug = require('debug')('api:server');
-const http = require('http');
-
+/*  Determine env for the app */
 const envs = require('../enviroments/envs');
-
 const envObjs = envs.getEnvs();
 
 /**
@@ -25,11 +17,20 @@ if(getEnv()){
 
   port = normalizePort(getEnv().env.port);
   host = getEnv().env.host;
+  
+  envs.setSelEnv(getEnv());
 }
 
+/*  END of env config */
+
+/**
+ * Module dependencies.
+ */
+const app = require('../app');
+const debug = require('debug')('api:server');
+const http = require('http');
+
 app.set('port', port);
-
-
 
 /**
  * Create HTTP server.

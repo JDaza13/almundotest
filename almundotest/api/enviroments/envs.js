@@ -12,6 +12,17 @@ const envObjs = [
   }
 ];
 
+let selectedEnv = envObjs[0];
+
 exports.getEnvs = function () {
     return envObjs;
+}
+
+exports.setSelEnv = function (env) {
+    
+    selectedEnv = env;
+}
+
+exports.getSelEnv = function () {
+    return selectedEnv;
 }
