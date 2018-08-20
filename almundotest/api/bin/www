@@ -4,16 +4,32 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('api:server');
-var http = require('http');
+const app = require('../app');
+const debug = require('debug')('api:server');
+const http = require('http');
+
+const envs = require('../enviroments/envs');
+
+const envObjs = envs.getEnvs();
 
 /**
- * Get port from environment and store in Express.
+ * Set default port and host for the app
  */
-
 var port = normalizePort('8081');
+var host = "localhost";
+
+/**
+ * if env is provided, update port and host
+ */
+if(getEnv()){
+
+  port = getEnv().env.port;
+  host = getEnv().env.host;
+}
+
 app.set('port', port);
+
+
 
 /**
  * Create HTTP server.
@@ -22,10 +38,13 @@ app.set('port', port);
 var server = http.createServer(app);
 
 /**
- * Listen on provided port, on all network interfaces.
+ * Listen on provided port, provided host, log when start.
  */
 
-server.listen(port);
+server.listen(port, host, function() {
+  console.log('Node.js server started on: ' + host + ':' + port);
+});
+
 server.on('error', onError);
 server.on('listening', onListening);
 
@@ -87,4 +106,26 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
+}
+
+
+//this method willl try to get the env
+//otherwhise it will return null
+function getEnv(){
+
+  var envKey = 'env=';
+  var envResult = [];
+  
+  process.argv.forEach(function (val, index) {
+    if(val.indexOf(envKey) >= 0){
+      envResult = envObjs.filter(function(e){
+        if(e.name === val.split('=')[1]){
+          return e;
+        }
+        return null;
+      });
+    }
+  });
+
+  return envResult.length > 0 ? envResult[0] : null;
 }
