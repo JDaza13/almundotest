@@ -15,7 +15,7 @@ const envObjs = envs.getEnvs();
 /**
  * Set default port and host for the app
  */
-var port = normalizePort('8081');
+var port = '8081';
 var host = "localhost";
 
 /**
@@ -23,7 +23,7 @@ var host = "localhost";
  */
 if(getEnv()){
 
-  port = getEnv().env.port;
+  port = normalizePort(getEnv().env.port);
   host = getEnv().env.host;
 }
 
@@ -109,7 +109,7 @@ function onListening() {
 }
 
 
-//this method willl try to get the env
+//this method will try to get the env
 //otherwhise it will return null
 function getEnv(){
 
