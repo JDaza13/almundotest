@@ -59,4 +59,4 @@ ng lint
 
 ## TODO
 
-* Continuous delivery
+* Hotels pagination

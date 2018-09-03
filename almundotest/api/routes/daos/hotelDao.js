@@ -36,6 +36,7 @@ const insertHotels = function(db, callback, hotelArray) {
     const collection = db.collection(hotelsCollection);
 
     collection.insertMany(hotelArray, function(err, result) {
+        assert.equal(null, err);
         callback(result);
     });
 }
@@ -46,6 +47,7 @@ const editHotel = function(db, callback, hotelData, id) {
     let o_id = new mongo.ObjectID(id);
 
     collection.updateOne({ '_id' : o_id }, { $set: hotelData }, function(err, result) {
+        assert.equal(null, err);
         callback(result);
     });
 }
@@ -56,6 +58,7 @@ const removeHotel = function(db, callback,  id) {
     let o_id = new mongo.ObjectID(id);
 
     collection.deleteOne({ '_id' : o_id }, function(err, result) {
+        assert.equal(null, err);
         callback(result);
     });
 }
